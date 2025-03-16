@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roxane Rouault - Digital Designer x Brand Strategist</title>
+  <title>Roxane Rouault - Digital Designer x Creative Coder x Brand Strategist</title>
   <link rel="stylesheet" href="./style/style.css"/>
   <link rel="icon" type="image/png" href="./images/favicon.png"/>
 </head>
@@ -12,22 +12,28 @@
   <!-- HEADER -->
   <header class="main-header">
     <nav>
-        <!-- Texte cliquable à gauche -->
         <a href="index.html" class="header-logo">[ ROXANE ROUAULT ]</a>
-        
-        <!-- Titre au centre -->
-        <h1 class="header-title">Digital Designer x Brand Strategist</h1>
-        
-        <!-- Menu à droite -->
+        <h1 class="header-title">Digital Designer x Creative Coder x Brand Strategist</h1>
         <ul class="nav-links">
-            <li><a href="work.html">WORK</a></li>
-            <li><a href="about.html">ABOUT</a></li>
+          <li class="desktop-only"><a href="work.html">WORK GALLERY</a></li>
+          <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
-</header>
-
-
+  </header>
   <!-- Fin HEADER -->
+
+  <!-- PLAYER DE MUSIQUE DÉPLAÇABLE -->
+  <div class="music-player" id="music-player">
+    <h2>🎵</h2>
+    <div id="track-title" class="track-title"></div>
+    <audio id="audioPlayer"></audio>
+    <div class="player-controls">
+      <button id="prevBtn">◀◀︎</button>
+      <button id="playBtn">▶︎</button>
+      <button id="nextBtn">▶︎▶︎</button>
+    </div>
+  </div>
+  <!-- Fin PLAYER DE MUSIQUE -->
 
   <!-- Conteneur principal du carousel -->
   <div class="carousel-container" id="work">
@@ -55,51 +61,51 @@
 
     <!-- Slide 3 -->
     <section class="slide">
-        <video src="./video/Kinetic_Raw.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">KINETIC RAW EXPERIMENTATION</div>
-          <div class="software">PYTHON SCRIPT - TOUCHDESIGNER</div>
-          <div class="year">2025</div>
-        </div>
-      </section>
+      <video src="./video/Kinetic_Raw.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">KINETIC RAW EXPERIMENTATION</div>
+        <div class="software">PYTHON SCRIPT - TOUCHDESIGNER</div>
+        <div class="year">2025</div>
+      </div>
+    </section>
 
     <!-- Slide 4 -->
     <section class="slide">
-        <video src="./video/SadeFlowers.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">S/FLOWERS EXPERIMENTATION</div>
-          <div class="software">AUDIO REACTIVE - TOUCHDESIGNER</div>
-          <div class="year">2024</div>
-        </div>
-      </section>
+      <video src="./video/SadeFlowers.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">S/FLOWERS EXPERIMENTATION</div>
+        <div class="software">AUDIO REACTIVE - TOUCHDESIGNER</div>
+        <div class="year">2024</div>
+      </div>
+    </section>
 
-      <!-- Slide 5 -->
+    <!-- Slide 5 -->
     <section class="slide">
-        <video src="./video/dsl-call.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">DIESEL CAMPAIGN CONCEPT</div>
-          <div class="software">3D - TOUCHDESIGNER</div>
-          <div class="year">2025</div>
-        </div>
-      </section>
+      <video src="./video/diesel.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">DIESEL CAMPAIGN CONCEPT</div>
+        <div class="software">3D - TOUCHDESIGNER</div>
+        <div class="year">2025</div>
+      </div>
+    </section>
 
     <!-- Slide 6 -->
     <section class="slide">
-        <video src="./video/Cybertruck.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">CYBERTRUCK CAMPAIGN CONCEPT</div>
-          <div class="software">3D - ANIMATION</div>
-          <div class="year">2024</div>
-        </div>
-      </section>
+      <video src="./video/Cybertruck.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">CYBERTRUCK CAMPAIGN CONCEPT</div>
+        <div class="software">3D - ANIMATION</div>
+        <div class="year">2024</div>
+      </div>
+    </section>
 
-      <!-- Slide 6 -->
+    <!-- Slide 7 -->
     <section class="slide">
-      <video src="./video/Rush.mp4" autoplay muted loop></video>
+      <video src="./video/RUN.mp4" autoplay muted loop></video>
       <!-- Barre d'infos horizontale -->
       <div class="info-bar">
         <div class="project-name">RUSH EXPERIMENTATION</div>
@@ -108,90 +114,45 @@
       </div>
     </section>
 
-    <!-- Slide 7 -->
-    <section class="slide">
-        <video src="./video/Horsfer.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">HORSFER LOCAL MEDIA</div>
-          <div class="software">VIDEO EDITING - ARTISTIC DIRECTION</div>
-          <div class="year">2023</div>
-        </div>
-      </section>
-
     <!-- Slide 8 -->
     <section class="slide">
-        <video src="./video/Fontkroma.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">FONTKROMA AI</div>
-          <div class="software">AI MODEL - CODE - MOTION DESIGN</div>
-          <div class="year">2023</div>
-        </div>
-      </section>
+      <video src="./video/Horsfer.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">HORSFER LOCAL MEDIA</div>
+        <div class="software">VIDEO EDITING - ARTISTIC DIRECTION</div>
+        <div class="year">2023</div>
+      </div>
+    </section>
 
-      <!-- Slide 9 -->
+    <!-- Slide 9 -->
     <section class="slide">
-        <video src="./video/REVE.mp4" autoplay muted loop></video>
-        <!-- Barre d'infos horizontale -->
-        <div class="info-bar">
-          <div class="project-name">RÊVE EXPERIMENTATION</div>
-          <div class="software">3D - PROCUDERAL GENERATION</div>
-          <div class="year">2022</div>
-        </div>
-      </section>
+      <video src="./video/Fontkroma.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">FONTKROMA AI</div>
+        <div class="software">AI MODEL - CODE - MOTION DESIGN</div>
+        <div class="year">2023</div>
+      </div>
+    </section>
+
+    <!-- Slide 10 -->
+    <section class="slide">
+      <video src="./video/REVE.mp4" autoplay muted loop></video>
+      <!-- Barre d'infos horizontale -->
+      <div class="info-bar">
+        <div class="project-name">RÊVE EXPERIMENTATION</div>
+        <div class="software">3D - PROCUDERAL GENERATION</div>
+        <div class="year">2022</div>
+      </div>
+    </section>
   </div>
+  <!-- Fin du conteneur du carousel -->
 
   <!-- Curseur personnalisé -->
   <div class="custom-cursor">[scroll]</div>
 
-  <!-- Script -->
-  <script>
-    // Sélection du curseur personnalisé et du conteneur
-    const customCursor = document.querySelector('.custom-cursor');
-    const carouselContainer = document.querySelector('.carousel-container');
-    const slides = document.querySelectorAll('.slide');
-
-    // Positionnement du curseur personnalisé en suivant la souris
-    document.addEventListener('mousemove', (e) => {
-      customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    });
-
-    // Quand la souris entre dans le carousel-container
-    carouselContainer.addEventListener('mouseenter', () => {
-      // Masque le curseur par défaut dans le container
-      carouselContainer.style.cursor = 'none';
-      // Affiche le curseur personnalisé
-      customCursor.style.display = 'block';
-    });
-
-    // Quand la souris sort du carousel-container
-    carouselContainer.addEventListener('mouseleave', () => {
-      // Restaure le curseur par défaut
-      carouselContainer.style.cursor = 'default';
-      // Masque le curseur personnalisé
-      customCursor.style.display = 'none';
-    });
-
-    // IntersectionObserver pour zoomer le slide visible
-    const options = {
-      root: null,
-      threshold: 0.6 // 60% de visibilité
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    }, options);
-
-    slides.forEach(slide => {
-      observer.observe(slide);
-    });
-  </script>
+  <!-- On importe le script global ici, tout en bas du body -->
+  <script src="script.js"></script>
 </body>
 </html>

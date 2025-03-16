@@ -183,12 +183,141 @@ html {
                     Affiché en JS quand la souris est dans .carousel-container */
 }
 
+/* ----------------------------------------
+   PAGE WORK
+---------------------------------------- */
+
+.video-gallery {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.video-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.video-container {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.video-container:last-child {
+  margin-right: 0;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-caption {
+  font-size: 0.9rem;
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.seemore {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.hover-effect {
+  position: relative;
+}
+
+/* Survol : agrandissement + curseur personnalisé */
+.hover-effect:hover {
+  transform: scale(1.05);
+  /* Remplacez BASE64_DU_CURSOR par le vrai encodage d'une image qui affiche [see more] */
+  cursor: url("data:image/png;base64,BASE64_DU_CURSOR") 16 0, auto;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.hover-effect a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----------------------------------------
+   MUSIC PLAYER
+---------------------------------------- */
+
+
+.music-player {
+  position: absolute;
+  bottom: 60px;
+  right: 35px;
+  z-index: 9999; /* au-dessus de la plupart des éléments */
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 10px;
+  cursor: move; 
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+  width: 300px;
+  height: 140px;
+}
+
+.track-title {
+  margin-bottom: 8px;
+  margin-top: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.music-player h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  color: #000;
+  cursor: default;
+  text-align: center;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-controls button {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.8rem;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.player-controls button:hover {
+  background: #fff;
+}
+
+/* ----------------------------------------
+   WEB ONLY
+---------------------------------------- */
+
+.desktop-only {
+  display: block;
+}
+
 
 @media (max-width: 767.98px) {
   /* Ajustements du header */
   .main-header nav {
     flex-direction: column;
-    padding: 0.5rem;
+    padding: 1rem;
   }
   .header-logo {
     font-size: 1.5rem;
@@ -269,4 +398,63 @@ html {
   .software {
     font-size: 0.7rem;
   }
+
+  .video-gallery {
+    width: 95%;          /* Optionnel, pour utiliser un peu plus d’espace sur mobile */
+    margin-top: 7rem;    /* Ajustez au besoin */
+    margin-bottom: 1rem;
+  }
+  
+  .video-row {
+    flex-direction: column;  /* Les vidéos passent à la verticale */
+    margin-bottom: 1rem;
+  }
+  
+  .video-container {
+    margin-right: 0;         /* Supprime la marge droite */
+    margin-bottom: 1rem;     /* Ajoute un espace entre chaque conteneur */
+    flex: none;              /* Permet de gérer la largeur indépendamment du flex parent */
+    width: 100%;             /* Chaque vidéo-container prend toute la largeur */
+  }
+  
+  /* Ajustez la taille des textes si besoin */
+  .video-caption {
+    font-size: 0.8rem;
+  }
+
+  .seemore {
+    font-size: 1rem;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .music-player {
+    position: fixed;
+    bottom: 15px;
+    right: 17px;
+    width: 260px;
+    height: 90px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  .music-player h2 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .track-title {
+    font-size: 0.8rem;
+    margin-top: -0.2rem;
+  }
+  
+  .player-controls button {
+    font-size: 0.8rem;
+    padding: 1px 5px;
+    border-radius: 7px;
+    margin-top: -0.15rem;
+  }
+
 }
