@@ -457,4 +457,8 @@ video {
     margin-top: -0.15rem;
   }
 
+  .custom-cursor {
+    display: none !important;
+  }
+
 }
