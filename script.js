@@ -2,52 +2,63 @@
  * GESTION DU CURSEUR PERSONNALISÉ + CAROUSEL
  ***************************************************/
 document.addEventListener('DOMContentLoaded', () => {
-    // Sélection du curseur personnalisé et du conteneur
-    const customCursor = document.querySelector('.custom-cursor');
-    const carouselContainer = document.querySelector('.carousel-container');
-    const slides = document.querySelectorAll('.slide');
-  
-    // Positionnement du curseur personnalisé en suivant la souris
+  const customCursor = document.querySelector('.custom-cursor');
+  const carouselContainer = document.querySelector('.carousel-container');
+  const slides = document.querySelectorAll('.slide');
+
+  // Vérifie si on est sur un écran « mobile » en utilisant une media query
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  // Si on N'EST PAS en mobile, on active le curseur personnalisé
+  if (!isMobile) {
+    // Suivi de la souris
     document.addEventListener('mousemove', (e) => {
       if (customCursor) {
         customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       }
     });
-  
+
     // Quand la souris entre dans le carousel-container
     if (carouselContainer) {
       carouselContainer.addEventListener('mouseenter', () => {
         carouselContainer.style.cursor = 'none';
-        customCursor.style.display = 'block';
+        if (customCursor) customCursor.style.display = 'block';
       });
-  
+
       // Quand la souris sort du carousel-container
       carouselContainer.addEventListener('mouseleave', () => {
         carouselContainer.style.cursor = 'default';
-        customCursor.style.display = 'none';
+        if (customCursor) customCursor.style.display = 'none';
       });
     }
-  
-    // IntersectionObserver pour zoomer le slide visible
-    const options = {
-      root: null,
-      threshold: 0.6 // 60% de visibilité
-    };
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    }, options);
-  
-    slides.forEach(slide => {
-      observer.observe(slide);
+  } else {
+    // Sur mobile, on masque le customCursor dès le chargement
+    if (customCursor) {
+      customCursor.style.display = 'none';
+    }
+  }
+
+  // IntersectionObserver pour zoomer le slide visible
+  const options = {
+    root: null,
+    threshold: 0.6 // 60% de visibilité
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
     });
+  }, options);
+
+  slides.forEach(slide => {
+    observer.observe(slide);
   });
+});
+
   
   /***************************************************
  * DRAGGABLE PLAYER DE MUSIQUE (Souris + Tactile)
