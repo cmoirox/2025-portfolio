@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // IntersectionObserver pour zoomer le slide visible
+  // IntersectionObserver pour zoomer le slide visible ET gérer la lecture vidéo
   const options = {
     root: null,
     threshold: 0.6 // 60% de visibilité
@@ -36,10 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const slide = entry.target;
+      const video = slide.querySelector('video');
+      if (!video) return;
+
       if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+        // Quand le slide (et donc la vidéo) est visible à 60% ou plus
+        // On force playsinline et muted pour l'autoplay mobile
+        video.setAttribute('playsinline', '');
+        video.muted = true;
+
+        // On lance la lecture
+        video.play().catch(err => {
+          console.log('Autoplay bloqué ou erreur :', err);
+        });
+
+        // Option : si vous voulez zoomer
+        slide.classList.add('active');
       } else {
-        entry.target.classList.remove('active');
+        // Quand le slide n'est plus visible, on arrête la lecture
+        video.pause();
+
+        // Option : retirer le zoom
+        slide.classList.remove('active');
       }
     });
   }, options);
@@ -60,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Gestion Souris
   musicPlayer.addEventListener('mousedown', (e) => {
-    // Éviter de déclencher le drag si on clique sur un bouton
     if (e.target.tagName.toLowerCase() === 'button') return;
-
     isDown = true;
     offset = [
       musicPlayer.offsetLeft - e.clientX,
@@ -75,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, true);
 
   document.addEventListener('mousemove', (e) => {
-    // On empêche le comportement par défaut uniquement si on déplace réellement le player
     if (isDown) {
       e.preventDefault();
       musicPlayer.style.left = (e.clientX + offset[0]) + 'px';
@@ -85,9 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Gestion Tactile
   musicPlayer.addEventListener('touchstart', (e) => {
-    // Éviter de déclencher le drag si on touche un bouton
     if (e.target.tagName.toLowerCase() === 'button') return;
-
     isDown = true;
     offset = [
       musicPlayer.offsetLeft - e.touches[0].clientX,
@@ -100,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: false });
 
   document.addEventListener('touchmove', (e) => {
-    // On empêche le scroll par défaut seulement si on est en train de drag le player
     if (isDown) {
       e.preventDefault();
       musicPlayer.style.left = (e.touches[0].clientX + offset[0]) + 'px';
@@ -122,26 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Liste des morceaux
   const tracks = [
-    {
-      title: "Timeless - The Weeknd (feat Playboi Carti)",
-      src: "./audio/The-Weeknd-Playboi-Carti-Timeless.mp3"
-    },
-    {
-      title: "FASHION DESIGNA - Theodora",
-      src: "./audio/FASHION-DESIGNA.mp3"
-    },
-    {
-      title: "Le Tango Me Fait Pleurer - Daniel Vangarde",
-      src: "./audio/Daniel-Vangarde-Le-Tango-Me-Fait-Pleurer.mp3"
-    },
-    {
-      title: "Suffocation - Crystal Castles",
-      src: "./audio/Crystal-Castles-Suffocation.mp3"
-    },
-    {
-      title: "Cherish The Day - Sade",
-      src: "./audio/Cherish-the-Day-Sade.mp3"
-    }
+    { title: "Timeless - The Weeknd (feat Playboi Carti)", src: "./audio/The-Weeknd-Playboi-Carti-Timeless.mp3" },
+    { title: "FASHION DESIGNA - Theodora",                 src: "./audio/FASHION-DESIGNA.mp3" },
+    { title: "Le Tango Me Fait Pleurer - Daniel Vangarde", src: "./audio/Daniel-Vangarde-Le-Tango-Me-Fait-Pleurer.mp3" },
+    { title: "Perfect Love - Office Siren",              src: "./audio/Perfect-Love-Office-Siren.mp3" },
+    { title: "Suffocation - Crystal Castles",              src: "./audio/Crystal-Castles-Suffocation.mp3" }
   ];
 
   let currentTrackIndex = 0;
