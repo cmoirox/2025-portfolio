@@ -2,40 +2,30 @@
  * GESTION DU CURSEUR PERSONNALISÉ + CAROUSEL
  ***************************************************/
 document.addEventListener('DOMContentLoaded', () => {
+  // Sélection du curseur personnalisé et du conteneur
   const customCursor = document.querySelector('.custom-cursor');
   const carouselContainer = document.querySelector('.carousel-container');
   const slides = document.querySelectorAll('.slide');
 
-  // Vérifie si on est sur un écran « mobile » en utilisant une media query
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  // Positionnement du curseur personnalisé en suivant la souris
+  document.addEventListener('mousemove', (e) => {
+    if (customCursor) {
+      customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    }
+  });
 
-  // Si on N'EST PAS en mobile, on active le curseur personnalisé
-  if (!isMobile) {
-    // Suivi de la souris
-    document.addEventListener('mousemove', (e) => {
-      if (customCursor) {
-        customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      }
+  // Quand la souris entre dans le carousel-container
+  if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', () => {
+      carouselContainer.style.cursor = 'none';
+      customCursor.style.display = 'block';
     });
 
-    // Quand la souris entre dans le carousel-container
-    if (carouselContainer) {
-      carouselContainer.addEventListener('mouseenter', () => {
-        carouselContainer.style.cursor = 'none';
-        if (customCursor) customCursor.style.display = 'block';
-      });
-
-      // Quand la souris sort du carousel-container
-      carouselContainer.addEventListener('mouseleave', () => {
-        carouselContainer.style.cursor = 'default';
-        if (customCursor) customCursor.style.display = 'none';
-      });
-    }
-  } else {
-    // Sur mobile, on masque le customCursor dès le chargement
-    if (customCursor) {
+    // Quand la souris sort du carousel-container
+    carouselContainer.addEventListener('mouseleave', () => {
+      carouselContainer.style.cursor = 'default';
       customCursor.style.display = 'none';
-    }
+    });
   }
 
   // IntersectionObserver pour zoomer le slide visible
@@ -59,152 +49,153 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-  
-  /***************************************************
+
+/***************************************************
  * DRAGGABLE PLAYER DE MUSIQUE (Souris + Tactile)
  ***************************************************/
 document.addEventListener('DOMContentLoaded', () => {
-    const musicPlayer = document.getElementById('music-player');
-    let isDown = false;
-    let offset = [0, 0];
-  
-    // Gestion Souris
-    musicPlayer.addEventListener('mousedown', function(e) {
-      // Éviter de déclencher le drag si on clique sur un bouton
-      if (e.target.tagName.toLowerCase() === 'button') return;
-      
-      isDown = true;
-      offset = [
-        musicPlayer.offsetLeft - e.clientX,
-        musicPlayer.offsetTop - e.clientY
-      ];
-    }, true);
-  
-    document.addEventListener('mouseup', function() {
-      isDown = false;
-    }, true);
-  
-    document.addEventListener('mousemove', function(e) {
-      e.preventDefault();
-      if (isDown) {
-        musicPlayer.style.left = (e.clientX + offset[0]) + 'px';
-        musicPlayer.style.top  = (e.clientY + offset[1]) + 'px';
-      }
-    }, true);
-    
-    // Gestion Tactile
-    musicPlayer.addEventListener('touchstart', function(e) {
-      // Éviter de déclencher le drag si on touche un bouton
-      if (e.target.tagName.toLowerCase() === 'button') return;
-      
-      isDown = true;
-      offset = [
-        musicPlayer.offsetLeft - e.touches[0].clientX,
-        musicPlayer.offsetTop - e.touches[0].clientY
-      ];
-    }, { passive: false });
-  
-    document.addEventListener('touchend', function() {
-      isDown = false;
-    }, { passive: false });
-  
-    document.addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      if (isDown) {
-        musicPlayer.style.left = (e.touches[0].clientX + offset[0]) + 'px';
-        musicPlayer.style.top  = (e.touches[0].clientY + offset[1]) + 'px';
-      }
-    }, { passive: false });
-  });
-  
-  
-  /***************************************************
-   * GESTION DU PLAYER AUDIO / PLAYLIST
-   ***************************************************/
-  document.addEventListener('DOMContentLoaded', () => {
-    const audioPlayer = document.getElementById('audioPlayer');
-    const playBtn     = document.getElementById('playBtn');
-    const nextBtn     = document.getElementById('nextBtn');
-    const prevBtn     = document.getElementById('prevBtn');
-    const trackTitle  = document.getElementById('track-title');
-  
-    // Liste des morceaux
-    const tracks = [
-      {
-        title: "Timeless - The Weeknd (feat Playboi Carti)",
-        src: "./audio/The-Weeknd-Playboi-Carti-Timeless.mp3"
-      },
-      {
-        title: "FASHION DESIGNA - Theodora",
-        src: "./audio/FASHION-DESIGNA.mp3"
-      },
-      {
-        title: "Le Tango Me Fait Pleurer - Daniel Vangarde",
-        src: "./audio/Daniel-Vangarde-Le-Tango-Me-Fait-Pleurer.mp3"
-      },
-      {
-        title: "Suffocation - Crystal Castles",
-        src: "./audio/Crystal-Castles-Suffocation.mp3"
-      },
-      {
-        title: "Cherish The Day - Sade",
-        src: "./audio/Cherish-the-Day-Sade.mp3"
-      }
+  const musicPlayer = document.getElementById('music-player');
+  let isDown = false;
+  let offset = [0, 0];
+
+  // Gestion Souris
+  musicPlayer.addEventListener('mousedown', (e) => {
+    // Éviter de déclencher le drag si on clique sur un bouton
+    if (e.target.tagName.toLowerCase() === 'button') return;
+
+    isDown = true;
+    offset = [
+      musicPlayer.offsetLeft - e.clientX,
+      musicPlayer.offsetTop - e.clientY
     ];
-  
-    let currentTrackIndex = 0;
-    let isPlaying = false;
-  
-    // Fonction pour charger un morceau
-    function loadTrack(index) {
-      audioPlayer.src = tracks[index].src;
-      trackTitle.textContent = tracks[index].title;
+  }, true);
+
+  document.addEventListener('mouseup', () => {
+    isDown = false;
+  }, true);
+
+  document.addEventListener('mousemove', (e) => {
+    // On empêche le comportement par défaut uniquement si on déplace réellement le player
+    if (isDown) {
+      e.preventDefault();
+      musicPlayer.style.left = (e.clientX + offset[0]) + 'px';
+      musicPlayer.style.top  = (e.clientY + offset[1]) + 'px';
     }
-  
-    // Initialisation
+  }, true);
+
+  // Gestion Tactile
+  musicPlayer.addEventListener('touchstart', (e) => {
+    // Éviter de déclencher le drag si on touche un bouton
+    if (e.target.tagName.toLowerCase() === 'button') return;
+
+    isDown = true;
+    offset = [
+      musicPlayer.offsetLeft - e.touches[0].clientX,
+      musicPlayer.offsetTop - e.touches[0].clientY
+    ];
+  }, { passive: false });
+
+  document.addEventListener('touchend', () => {
+    isDown = false;
+  }, { passive: false });
+
+  document.addEventListener('touchmove', (e) => {
+    // On empêche le scroll par défaut seulement si on est en train de drag le player
+    if (isDown) {
+      e.preventDefault();
+      musicPlayer.style.left = (e.touches[0].clientX + offset[0]) + 'px';
+      musicPlayer.style.top  = (e.touches[0].clientY + offset[1]) + 'px';
+    }
+  }, { passive: false });
+});
+
+
+/***************************************************
+ * GESTION DU PLAYER AUDIO / PLAYLIST
+ ***************************************************/
+document.addEventListener('DOMContentLoaded', () => {
+  const audioPlayer = document.getElementById('audioPlayer');
+  const playBtn     = document.getElementById('playBtn');
+  const nextBtn     = document.getElementById('nextBtn');
+  const prevBtn     = document.getElementById('prevBtn');
+  const trackTitle  = document.getElementById('track-title');
+
+  // Liste des morceaux
+  const tracks = [
+    {
+      title: "Timeless - The Weeknd (feat Playboi Carti)",
+      src: "./audio/The-Weeknd-Playboi-Carti-Timeless.mp3"
+    },
+    {
+      title: "FASHION DESIGNA - Theodora",
+      src: "./audio/FASHION-DESIGNA.mp3"
+    },
+    {
+      title: "Le Tango Me Fait Pleurer - Daniel Vangarde",
+      src: "./audio/Daniel-Vangarde-Le-Tango-Me-Fait-Pleurer.mp3"
+    },
+    {
+      title: "Suffocation - Crystal Castles",
+      src: "./audio/Crystal-Castles-Suffocation.mp3"
+    },
+    {
+      title: "Cherish The Day - Sade",
+      src: "./audio/Cherish-the-Day-Sade.mp3"
+    }
+  ];
+
+  let currentTrackIndex = 0;
+  let isPlaying = false;
+
+  // Fonction pour charger un morceau
+  function loadTrack(index) {
+    audioPlayer.src = tracks[index].src;
+    trackTitle.textContent = tracks[index].title;
+  }
+
+  // Initialisation
+  loadTrack(currentTrackIndex);
+
+  // Lecture / Pause
+  function togglePlay() {
+    if (!isPlaying) {
+      audioPlayer.play();
+      isPlaying = true;
+      playBtn.textContent = "❚❚"; // Icône "pause"
+    } else {
+      audioPlayer.pause();
+      isPlaying = false;
+      playBtn.textContent = "▶︎"; // Icône "lecture"
+    }
+  }
+
+  // Morceau suivant
+  function nextTrack() {
+    currentTrackIndex++;
+    if (currentTrackIndex >= tracks.length) {
+      currentTrackIndex = 0;
+    }
     loadTrack(currentTrackIndex);
-  
-    // Lecture / Pause
-    function togglePlay() {
-      if (!isPlaying) {
-        audioPlayer.play();
-        isPlaying = true;
-        playBtn.textContent = "❚❚"; // Icône de "pause"
-      } else {
-        audioPlayer.pause();
-        isPlaying = false;
-        playBtn.textContent = "▶︎"; // Icône de "lecture"
-      }
+    if (isPlaying) audioPlayer.play();
+  }
+
+  // Morceau précédent
+  function prevTrack() {
+    currentTrackIndex--;
+    if (currentTrackIndex < 0) {
+      currentTrackIndex = tracks.length - 1;
     }
-  
-    // Morceau suivant
-    function nextTrack() {
-      currentTrackIndex++;
-      if (currentTrackIndex >= tracks.length) {
-        currentTrackIndex = 0;
-      }
-      loadTrack(currentTrackIndex);
-      if (isPlaying) audioPlayer.play();
-    }
-  
-    // Morceau précédent
-    function prevTrack() {
-      currentTrackIndex--;
-      if (currentTrackIndex < 0) {
-        currentTrackIndex = tracks.length - 1;
-      }
-      loadTrack(currentTrackIndex);
-      if (isPlaying) audioPlayer.play();
-    }
-  
-    // Écouteurs sur les boutons
-    playBtn.addEventListener('click', togglePlay);
-    nextBtn.addEventListener('click', nextTrack);
-    prevBtn.addEventListener('click', prevTrack);
-  
-    // Quand le morceau se termine, on passe au suivant
-    audioPlayer.addEventListener('ended', () => {
-      nextTrack();
-    });
+    loadTrack(currentTrackIndex);
+    if (isPlaying) audioPlayer.play();
+  }
+
+  // Écouteurs sur les boutons
+  playBtn.addEventListener('click', togglePlay);
+  nextBtn.addEventListener('click', nextTrack);
+  prevBtn.addEventListener('click', prevTrack);
+
+  // Quand le morceau se termine, on passe au suivant
+  audioPlayer.addEventListener('ended', () => {
+    nextTrack();
   });
-  
+});
