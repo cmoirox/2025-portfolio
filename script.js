@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: "Timeless - The Weeknd (feat Playboi Carti)", src: "./audio/The-Weeknd-Playboi-Carti-Timeless.mp3" },
     { title: "FASHION DESIGNA - Theodora",                 src: "./audio/FASHION-DESIGNA.mp3" },
     { title: "Le Tango Me Fait Pleurer - Daniel Vangarde", src: "./audio/Daniel-Vangarde-Le-Tango-Me-Fait-Pleurer.mp3" },
-    { title: "Perfect Love - Office Siren",              src: "./audio/Perfect-Love-Office-Siren.mp3" },
-    { title: "Suffocation - Crystal Castles",              src: "./audio/Crystal-Castles-Suffocation.mp3" }
+    { title: "Dead Disco - Metric",              src: "./audio/Metric-Dead-Disco.mp3" },
+    { title: "Hi-Fi - Laylow",              src: "./audio/Hi-Fi-laylow.mp3" }
   ];
 
   let currentTrackIndex = 0;

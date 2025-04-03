@@ -336,9 +336,8 @@ video {
 /* ----------------------------------------
    PAGE ABOUT
 ---------------------------------------- */
-/* Styles de base pour la section */
 .content-section {
-  padding: 40px 0; /* Ajuste au besoin pour l’espace vertical */
+  padding: 40px 0; 
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -351,72 +350,120 @@ video {
 
 .container {
   display: flex;
-  align-items: center;       /* Aligne verticalement au milieu */
-  justify-content: flex-start; /* Les éléments se placent à gauche */
+  align-items: center;  
+  justify-content: flex-start; 
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 2rem;
 }
 
-/* Styles de base pour l'image */
+
 .image-box img {
-  max-width: 70%; /* Ajuste la taille si nécessaire */
+  max-width: 70%;
   height: auto;
   display: block;
 }
 
-/* ----- Positionnement de la première section (left-image) ----- */
 
-/* Par défaut, l'image vient en premier dans le HTML, donc rien à changer pour .left-image */
 .left-image .image-box {
   order: 1;
 }
 
-/* Le texte vient après, on peut lui mettre une petite marge à gauche */
+
 .left-image .text-box {
   order: 2;
-  margin-left: 10px; /* Ajuste l’espace entre l’image et le texte */
+  margin-left: 10px; 
 }
 
-/* ----- Positionnement de la deuxième section (right-image) ----- */
+
 .right-image .text-box {
-  order: 1;  /* Le texte passe en premier */
-  margin-right: 10rem; /* Petit espace entre le texte et l’image */
+  order: 1;  
+  margin-right: 10rem; 
 }
 
 .right-image .image-box {
   order: 2;
 }
 
-/* Section uniquement texte */
+
 .text-only .container {
   display: flex;
-  justify-content: center; /* Centre horizontalement la text-box */
-  align-items: center;     /* Centre verticalement si besoin */
-  padding: 40px 0;        /* Espace vertical autour de la section */
+  justify-content: center; 
+  align-items: center;     
+  padding: 40px 0;        
 }
 
 .text-only .text-box {
-  text-align: center;      /* Centre le texte à l’intérieur */
+  text-align: center;    
 }
 
 .text-only-skill {
   display: flex;
-  justify-content: center; /* Centre horizontalement la text-box */
-  align-items: center;     /* Centre verticalement si besoin */
-  padding: 40px 0;        /* Espace vertical autour de la section */
+  justify-content: center; 
+  align-items: center;     
+  padding: 40px 0;        
   font-size: 4rem;
   text-decoration: underline;
 }
 
 .text-only-software {
   display: flex;
-  justify-content: center; /* Centre horizontalement la text-box */
-  align-items: center;     /* Centre verticalement si besoin */
-  padding: 40px 0;        /* Espace vertical autour de la section */
+  justify-content: center;
+  align-items: center;     
+  padding: 40px 0;       
   font-size: 2rem;
 }
 
+/* ----------------------------------------
+   PAGE PROJET
+---------------------------------------- */
+.projet-title-section {
+  margin-top: 7rem;
+  margin-left: 10.5rem;
+}
+
+.projet-title {
+  font-size: 3rem;
+  text-align: left;
+  margin: 0; /* Ajuste selon ton design */
+}
+
+/* SECTION VIDÉO */
+.projet-video-section {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center; /* Centre la vidéo horizontalement */
+}
+
+.projet-video {
+  max-width: 80%;
+  height: auto;
+}
+
+/* SECTION IMAGE */
+.projet-image-section {
+  margin: 40px 0;
+  text-align: center; /* Centre l'image horizontalement */
+}
+
+.projet-image {
+  max-width: 80%;
+  height: auto;
+  display: inline-block;
+}
+
+/* SECTION TEXTE CENTRÉ */
+.projet-text-section {
+  margin: 40px 0;
+  text-align: center; /* Centre le texte dans la page */
+}
+
+.projet-text {
+  font-size: 1.5rem; /* Plus petit que le titre */
+  max-width: 800px; /* Largeur max pour limiter la longueur des lignes */
+  margin: 0 auto;   /* Centre horizontalement si on fixe une largeur */
+  line-height: 1.5;
+}
 
 @media (max-width: 767.98px) {
   /* Ajustements du header */
@@ -635,6 +682,54 @@ video {
     font-size: 1rem; 
     text-align: center; 
     margin-top: -4rem;
+  }
+
+  .projet-title-section {
+    margin-top: 10rem;
+    margin-left: 2.5rem;
+  }
+
+  .projet-title {
+    font-size: 1.5rem;
+    text-align: left;
+    margin: 0; /* Ajuste selon ton design */
+  }
+
+  /* SECTION VIDÉO */
+  .projet-video-section {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center; /* Centre la vidéo horizontalement */
+  }
+
+  .projet-video {
+    max-width: 80%;
+    height: auto;
+  }
+
+  /* SECTION IMAGE */
+  .projet-image-section {
+    margin: 40px 0;
+    text-align: center; /* Centre l'image horizontalement */
+  }
+
+  .projet-image {
+    max-width: 80%;
+    height: auto;
+    display: inline-block;
+  }
+
+  /* SECTION TEXTE CENTRÉ */
+  .projet-text-section {
+    margin: 40px 0;
+    text-align: center; /* Centre le texte dans la page */
+  }
+
+  .projet-text {
+    font-size: 1rem; /* Plus petit que le titre */
+    max-width: 300px; /* Largeur max pour limiter la longueur des lignes */
+    margin: 0 auto;   /* Centre horizontalement si on fixe une largeur */
+    line-height: 1.5;
   }
 
 }
