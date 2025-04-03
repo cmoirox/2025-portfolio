@@ -440,6 +440,19 @@ video {
   height: auto;
 }
 
+.projet-video-wrapper {
+  position: relative;
+  max-width: 80%; /* même largeur que tes autres vidéos */
+  margin: 0 auto;
+}
+
+.projet-dropbox-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}
+
 /* SECTION IMAGE */
 .projet-image-section {
   margin: 40px 0;
