@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roxane Rouault - Digital Designer x Creative Coder x Brand Strategist</title>
+  <link rel="stylesheet" href="../style/style.css"/>
+  <link rel="icon" type="image/png" href="../images/favicon.png"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <nav>
+        <a href="../index.html" class="header-logo">[ ROXANE ROUAULT ]</a>
+        <h1 class="header-title">Digital Designer x Creative Coder x Brand Strategist</h1>
+        <ul class="nav-links">
+          <li class="desktop-only"><a href="../work.html">WORK GALLERY</a></li>
+          <li><a href="../about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <section class="projet-title-section">
+    <h2 class="projet-title">
+        HORSFER LOCAL MEDIA
+    </h2>
+  </section>
+  
+  <!-- SECTION VIDÉO -->
+  <section class="projet-video-section">
+    <!-- Utilise la balise <video> ou un iframe YouTube/Vimeo selon tes besoins -->
+    <video class="projet-video" controls>
+      <source src="../video/Horsfer-trailer.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <!-- SECTION TEXTE (centré) -->
+  <section class="projet-text-section">
+    <p class="projet-text">
+        Horsfer is a local media with a musical vocation whose objective is to highlight passionate artists who often remain in the shadows. Horsfer strives to meet local talents, both men and women, who are not necessarily music professionals, to encourage collaborations among them. To achieve this, Horsfer conducts video interviews with its guests. After a moment of exchange, the artists have the opportunity to express themselves artistically.
+    </p>
+  </section>
+
+  <section class="projet-image-section">
+    <img
+      src="../images/projet/horsfer1.jpg"
+      alt="Description de l'image"
+      class="projet-image"
+    />
+  </section>
+
+  <section class="projet-text-section">
+    <p class="projet-text">
+        Lil Soum Interview : 
+    </p>
+  </section>
+
+  <section class="projet-video-section">
+    <!-- Utilise la balise <video> ou un iframe YouTube/Vimeo selon tes besoins -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/y86T2_FEEXw?si=H0pD-H7vy4Zum-r_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+
+  <section class="projet-image-section">
+    <img
+      src="../images/projet/horsfer2.jpg"
+      alt="Description de l'image"
+      class="projet-image"
+    />
+  </section>
+
+  <section class="projet-text-section">
+    <p class="projet-text">
+        Enzo Bernard Interview : 
+    </p>
+  </section>
+
+  <section class="projet-video-section">
+    <!-- Utilise la balise <video> ou un iframe YouTube/Vimeo selon tes besoins -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4XKlBPjL23U?si=TQ_lo8jxOIvgGgHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  <section class="projet-video-section">
+    <!-- Utilise la balise <video> ou un iframe YouTube/Vimeo selon tes besoins -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/nxPOeleRIjc?si=ryO1H63NyLZVA0xm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  
+
+
+
+  <footer class="main-footer">
+    <div class="footer-left">contact : rouault.roxane@gmail.com</div>
+    <div class="footer-right">[this website was made by me with love &lt;3]</div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videos = document.querySelectorAll(".projet-video");
+  
+      // Crée un observateur
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          // Si l'élément est visible
+          if (entry.isIntersecting) {
+            const video = entry.target;
+  
+            // Sélectionne les <source> de cette vidéo
+            const sources = video.querySelectorAll("source[data-src]");
+            
+            sources.forEach((source) => {
+              // On remplace la valeur de src par data-src
+              source.src = source.dataset.src;
+              // Optionnel : on peut supprimer l'attribut data-src
+              source.removeAttribute("data-src");
+            });
+  
+            // Maintenant qu'on a setté les src, on charge la vidéo
+            video.load();
+  
+            // Si autoplay est défini, on peut relancer la vidéo.
+            // (pour s’assurer qu’elle démarre si muted + autoplay) :
+            if (video.autoplay) {
+              video.play().catch(() => {
+                // Dans certains navigateurs, autoplay peut requérir l'interaction de l'utilisateur
+                // On peut gérer l'erreur ici si nécessaire.
+              });
+            }
+  
+            // On arrête d'observer l'élément pour éviter de relancer à chaque scroll
+            obs.unobserve(video);
+          }
+        });
+      });
+  
+      // Observe toutes les vidéos
+      videos.forEach((video) => {
+        observer.observe(video);
+      });
+    });
+  </script>
+</body>
+</html>  
