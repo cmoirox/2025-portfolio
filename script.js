@@ -28,10 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Détection du navigateur Instagram
+  const isInstagramBrowser = /Instagram/.test(navigator.userAgent);
+
   // IntersectionObserver pour zoomer le slide visible ET gérer la lecture vidéo
   const options = {
     root: null,
-    threshold: 0.6 // 60% de visibilité
+    threshold: isInstagramBrowser ? 0.9 : 0.6 // Seuil plus élevé pour Instagram
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -41,23 +44,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!video) return;
 
       if (entry.isIntersecting) {
-        // Quand le slide (et donc la vidéo) est visible à 60% ou plus
-        // On force playsinline et muted pour l'autoplay mobile
+        // Attributs pour compatibilité maximale
         video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('x5-video-player-type', 'h5');
         video.muted = true;
-
-        // On lance la lecture
-        video.play().catch(err => {
-          console.log('Autoplay bloqué ou erreur :', err);
-        });
-
-        // Option : si vous voulez zoomer
+        
+        // Préchargement pour Instagram
+        if (isInstagramBrowser) {
+          video.load();
+        }
+        
+        // Tentative de lecture
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.catch(err => {
+            console.log('Erreur de lecture:', err);
+            // Deuxième tentative avec timeout
+            setTimeout(() => {
+              video.play().catch(e => console.log('Échec après timeout:', e));
+            }, 300);
+          });
+        }
+        
         slide.classList.add('active');
       } else {
-        // Quand le slide n'est plus visible, on arrête la lecture
         video.pause();
-
-        // Option : retirer le zoom
         slide.classList.remove('active');
       }
     });
@@ -67,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(slide);
   });
 });
-
 
 /***************************************************
  * DRAGGABLE PLAYER DE MUSIQUE (Souris + Tactile)
