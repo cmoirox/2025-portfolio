@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roxane Rouault - Digital Designer x Creative Coder x Brand Strategist</title>
-  <link rel="stylesheet" href="./style/style.css"/>
-  <link rel="icon" type="image/png" href="./images/favicon.png"/>
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header class="main-header">
-    <nav>
-      <!-- Texte cliquable à gauche -->
-      <a href="index.html" class="header-logo">[ ROXANE ROUAULT ]</a>
-      
-      <!-- Titre au centre -->
-      <h1 class="header-title">Digital Designer x Creative Coder x Brand Strategist</h1>
-      
-      <!-- Menu à droite -->
-      <ul class="nav-links">
-        <li class="desktop-only"><a href="work.html">WORK GALLERY</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Roxane Rouault - Digital Designer x Creative Coder x Brand Strategist</title>
+    <meta name="description" content="Roxane Rouault's portfolio - digital designer, creative coder and brand strategist. Discover my 3D, VFX, motion design and creative development projects.">
+    <meta name="keywords" content="Roxane Rouault, Portfolio, Digital Designer, Creative Coder, Brand Strategist, 3D, VFX, Motion Design, TouchDesigner">
+    <meta name="author" content="Roxane Rouault">
+    <link rel="stylesheet" href="./style/style.css"/>
+    <link rel="icon" type="image/png" href="./images/favicon.png"/>
+    <link rel="preload" href="./style/style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.roxanerouaultportfolio.com/">
+    <meta property="og:title" content="Roxane Rouault - Digital Designer x Creative Coder x Brand Strategist">
+    <meta property="og:description" content="Portfolio of Roxane Rouault, digital designer, creative coder and brand strategist.">
+    <meta property="og:image" content="https://www.roxanerouaultportfolio.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.roxanerouaultportfolio.com/">
+    <meta property="twitter:title" content="Roxane Rouault - Digital Designer x Creative Coder x Brand Strategist">
+    <meta property="twitter:description" content="Portfolio of Roxane Rouault, digital designer, creative coder and brand strategist.">
+    <meta property="twitter:image" content="https://www.roxanerouaultportfolio.com/images/og-image.jpg">
+  </head>
+  
+  <body itemscope itemtype="http://schema.org/Person">
+    <header class="main-header" role="banner">
+      <nav role="navigation">
+          <a href="index.html" class="header-logo" itemprop="name">[ ROXANE ROUAULT ]</a>
+          <h1 class="header-title" itemprop="jobTitle">Digital Designer x Creative Coder x Brand Strategist</h1>
+          <ul class="nav-links">
+            <li class="desktop-only"><a href="work.html">WORK GALLERY</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+          </ul>
+      </nav>
+    </header>
 
   <!-- CONTENU PRINCIPAL -->
   <main>
@@ -113,9 +126,13 @@
     </section>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-left">contact : rouault.roxane@gmail.com</div>
-    <div class="footer-right">[this website was made by me with love &lt;3]</div>
+  <footer class="main-footer" role="contentinfo">
+    <div class="footer-left" itemprop="email">
+      contact : <a href="mailto:rouault.roxane@gmail.com" itemprop="email">rouault.roxane@gmail.com</a>
+    </div>
+    <div class="footer-right" itemprop="creator" itemscope itemtype="http://schema.org/Person">
+      <span itemprop="name">[this website was made by Roxane Rouault with love &lt;3]</span>
+    </div>
   </footer>
 
 </body>
