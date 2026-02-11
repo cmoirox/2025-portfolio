@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roxane Rouault - Digital Artistic Director x Creative Coder</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/style.css"/>
+  <link rel="icon" type="image/png" href="../images/favicon1.png"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <nav>
+        <a href="../index.html" class="header-logo">[ ROXANE ROUAULT ]</a>
+        <h1 class="header-title">Digital Artistic Director x Creative Coder</h1>
+        <ul class="nav-links">
+          <li class="desktop-only"><a href="../work.html">WORK GALLERY</a></li>
+          <li><a href="../about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <section class="projet-title-section">
+    <h2 class="projet-title">
+        ROKU GIN 0% ALCOHOL CAMPAIGN CONCEPT
+    </h2>
+  </section>
+  
+  <!-- SECTION VIDÉO -->
+  <section class="projet-video-section">
+    <!-- Utilise la balise <video> ou un iframe YouTube/Vimeo selon tes besoins -->
+    <video class="projet-video" controls>
+      <source src="../video/ROKU.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <!-- SECTION TEXTE (centré) -->
+  <section class="projet-text-section">
+    <p class="projet-text">
+        Creation of 3D Campaign for the launch of Roku Gin’s alcohol-free range. Proposal of 6 packaging designs inspired by elements and themes from Japanese culture, incorporated into a fully 3D environment.
+    </p>
+  </section>
+
+  <section class="projet-video-section">
+    <div class="projet-video-wrapper">
+      <video class="projet-dropbox-video" controls>
+        <source 
+          src="https://www.dropbox.com/scl/fi/d2a9y469z820kls9s7j42/ROKU-PERSONALITY.mp4?rlkey=kr18igdar9f327zu3xdxj1fb4&st=2l07lvkz&raw=1" 
+          type="video/mp4"
+        />
+        Votre navigateur ne supporte pas la balise vidéo.
+      </video>
+    </div>
+  </section>
+
+  <section class="projet-text-section">
+    <p class="projet-text">
+        Case study explaining the campaign, concept, and activation for the launch of Roku Gin's alcohol-free range.
+    </p>
+  </section>
+
+  <section class="projet-video-section">
+    <video class="projet-video" autoplay muted loop playsinline>
+      <source data-src="../video/projet/inaka.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <section class="projet-video-section">
+    <video class="projet-video" autoplay muted loop playsinline>
+      <source data-src="../video/projet/jutsu.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <section class="projet-video-section">
+    <video class="projet-video" autoplay muted loop playsinline>
+      <source data-src="../video/projet/otaku.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <section class="projet-video-section">
+    <video class="projet-video" autoplay muted loop playsinline>
+      <source data-src="../video/projet/nihonga.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <section class="projet-video-section">
+    <video class="projet-video" autoplay muted loop playsinline>
+      <source data-src="../video/projet/shibuya.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <section class="projet-video-section">
+    <video class="projet-video" autoplay muted loop playsinline>
+      <source data-src="../video/projet/rekishi.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+  </section>
+
+  <!-- SECTION TEXTE (centré) -->
+  <section class="projet-text-section">
+    <p class="projet-text">
+      Use of 3D Blender.
+    </p>
+  </section>
+
+  <section class="projet-image-section">
+    <img
+      src="../images/projet/roku-image.jpg"
+      alt="Description de l'image"
+      class="projet-image"
+    />
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-left">contact : rouault.roxane@gmail.com</div>
+    <div class="footer-right">[this website was made by me with love &lt;3]</div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videos = document.querySelectorAll(".projet-video");
+  
+      // Crée un observateur
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          // Si l'élément est visible
+          if (entry.isIntersecting) {
+            const video = entry.target;
+  
+            // Sélectionne les <source> de cette vidéo
+            const sources = video.querySelectorAll("source[data-src]");
+            
+            sources.forEach((source) => {
+              // On remplace la valeur de src par data-src
+              source.src = source.dataset.src;
+              // Optionnel : on peut supprimer l'attribut data-src
+              source.removeAttribute("data-src");
+            });
+  
+            // Maintenant qu'on a setté les src, on charge la vidéo
+            video.load();
+  
+            // Si autoplay est défini, on peut relancer la vidéo.
+            // (pour s’assurer qu’elle démarre si muted + autoplay) :
+            if (video.autoplay) {
+              video.play().catch(() => {
+                // Dans certains navigateurs, autoplay peut requérir l'interaction de l'utilisateur
+                // On peut gérer l'erreur ici si nécessaire.
+              });
+            }
+  
+            // On arrête d'observer l'élément pour éviter de relancer à chaque scroll
+            obs.unobserve(video);
+          }
+        });
+      });
+  
+      // Observe toutes les vidéos
+      videos.forEach((video) => {
+        observer.observe(video);
+      });
+    });
+  </script>
+</body>
+</html>  
