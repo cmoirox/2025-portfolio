@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="511.54"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="511.54"><svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 511.54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="512" height="511.54" rx="255.77" ry="255.77"></rect>
+  <g>
+    <path class="cls-1" d="M213.03,312.76h-18.9l50.03-54.7v-1.11l-50.03-54.04h19.12l42.92,45.58h1.11l42.69-45.58h18.9l-50.25,53.59v1.11l50.25,55.15h-19.12l-43.14-46.48h-.89l-42.69,46.48Z"></path>
+    <path class="cls-1" d="M150.23,343.88h-38.69v-175.67h38.69v175.67ZM175.36,202.45h-63.82v-34.24h63.82v34.24ZM175.36,343.88h-63.82v-34.24h63.82v34.24Z"></path>
+    <path class="cls-1" d="M337.64,168.2h63.82v34.24h-63.82v-34.24ZM337.64,309.63h63.82v34.24h-63.82v-34.24ZM362.77,168.2h38.69v175.67h-38.69v-175.67Z"></path>
+  </g>
+</svg></svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
