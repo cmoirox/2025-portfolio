@@ -2,24 +2,6 @@
    Réinitialisation basique
 -------------------------------------------- */
 
-@font-face {
-  font-family: 'OffBit Trial';
-  src: url('OffBitTrial-Bold.eot');
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'OffBit Trial';
-  src: url('data:font/woff2;charset=utf-8;base64,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') format('woff2'),
-      url('data:font/woff;charset=utf-8;base64,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') format('woff'),
-      url('OffBitTrial-Bold.ttf') format('truetype'),
-      url('OffBitTrial-Bold.svg#OffBitTrial-Bold') format('svg');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 * {
   margin: 0;
   padding: 0;
@@ -28,18 +10,21 @@
 
 html, body {
   height: 100%;
-  font-family: 'OffBit Trial', sans-serif;
+  /* CHANGEMENT ICI : On force le poids "400" (Regular) */
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 400; 
   color: #fff;
   background: #000;
-  /* On NE met PAS cursor: none; ici,
-     pour conserver le curseur normal
-     hors du carousel. */
 }
 
 html {
-  font-size: 16px; /* Base pour rem calculations */
+  font-size: 16px; 
 }
 
+/* Pour s'assurer que les titres ne sont pas gras par défaut */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; /* Ou 300 si tu veux encore plus fin */
+}
 
 /* ----------------------------------------
    FOOTER
@@ -48,7 +33,7 @@ html {
 .main-footer {
   background-color: #000; 
   color: #fff;
-  z-index: 9999;         /* Optionnel, car sans position fixe ça compte moins */
+  z-index: 9999;         
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +54,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999; /* Au-dessus du carousel */
+  z-index: 9999; 
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -87,6 +72,7 @@ html {
   text-decoration: none;
   color: #fff;
   font-size: 1.5rem;
+  font-weight: 400; /* Pas de gras */
 }
 
 /* Texte au centre */
@@ -95,7 +81,7 @@ html {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 400; /* MODIFIÉ : Pas de gras */
 }
 
 /* Menu à droite */
@@ -110,9 +96,8 @@ html {
   color: #fff;
   font-size: 1.5rem;
   text-decoration: underline;
+  font-weight: 400;
 }
-
-
 
 /* ----------------------------------------
    CAROUSEL-CONTAINER
@@ -124,8 +109,6 @@ html {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  /* Par défaut, on laisse le curseur normal
-     mais on le retire en JS au survol. */
 }
 
 /* ----------------------------------------
@@ -144,13 +127,11 @@ html {
   opacity: 0.8;
 }
 
-/* Slide actif dans le viewport (zoom + opacité) */
 .slide.active {
   transform: scale(1);
   opacity: 1;
 }
 
-/* Vidéo en plein écran */
 .slide video {
   position: absolute;
   width: 100%;
@@ -161,7 +142,7 @@ html {
 }
 
 /* ----------------------------------------
-   INFO-BAR en bas du slide
+   INFO-BAR
 ---------------------------------------- */
 .info-bar {
   position: absolute;
@@ -176,13 +157,14 @@ html {
   justify-content: space-between;
   padding: 0 2rem;
   box-sizing: border-box;
-  z-index: 2; /* Au-dessus de la vidéo */
+  z-index: 2; 
 }
 
 .project-name,
 .software,
 .year {
   font-size: 1rem;
+  font-weight: 400; /* Sécurité pour éviter le gras */
 }
 
 /* ----------------------------------------
@@ -192,15 +174,14 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  /* On utilise un texte plutôt qu'un rond */
   color: #fff;
   font-size: 2rem;
-  pointer-events: none; /* Pour ne pas bloquer les clics */
+  pointer-events: none; 
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease;
-  display: none; /* Masqué par défaut. 
-                    Affiché en JS quand la souris est dans .carousel-container */
+  display: none; 
+  font-weight: 400;
 }
 
 /* ----------------------------------------
@@ -241,6 +222,7 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: #fff;
+  font-weight: 400;
 }
 
 .seemore {
@@ -248,16 +230,15 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: #fff;
+  font-weight: 400;
 }
 
 .hover-effect {
   position: relative;
 }
 
-/* Survol : agrandissement + curseur personnalisé */
 .hover-effect:hover {
   transform: scale(1.05);
-  /* Remplacez BASE64_DU_CURSOR par le vrai encodage d'une image qui affiche [see more] */
   cursor: url("data:image/png;base64,BASE64_DU_CURSOR") 16 0, auto;
   box-shadow: 0 0 0 3px #fff;
 }
@@ -272,52 +253,70 @@ video {
    MUSIC PLAYER
 ---------------------------------------- */
 
+/* ----------------------------------------
+   MUSIC PLAYER (CORRIGÉ)
+---------------------------------------- */
 
 .music-player {
   position: absolute;
   bottom: 60px;
   right: 35px;
-  z-index: 9999; /* au-dessus de la plupart des éléments */
+  z-index: 9999;
   background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(0, 0, 0, 0.6);
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px; /* Un peu plus d'espace interne (padding) */
   cursor: move; 
   box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
   width: 300px;
-  height: 140px;
-}
-
-.track-title {
-  margin-bottom: 8px;
-  margin-top: 0.8rem;
-  text-align: center;
-  font-weight: bold;
-  color: #000;
-  font-size: 0.9rem;
+  
+  /* CORRECTION CLÉ : Flexbox vertical */
+  height: auto;           /* On laisse la hauteur s'adapter au contenu... */
+  min-height: 140px;      /* ...mais avec un minimum pour garder le look */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Répartit l'espace (Haut, Milieu, Bas) */
+  align-items: center;
 }
 
 .music-player h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.3rem;
+  margin: 0;
+  font-size: 1.5rem; /* Icône note un peu plus visible */
   color: #000;
   cursor: default;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.track-title {
+  margin: 10px 0; /* Espace propre autour du titre */
   text-align: center;
+  font-weight: 400;
+  color: #000;
+  font-size: 0.9rem;
+  width: 100%;
+  line-height: 1.2;
 }
 
 .player-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Écarte les boutons gauche/droite */
+  width: 100%; /* Important pour que space-between fonctionne */
+  margin-top: 5px;
 }
 
 .player-controls button {
   background-color: rgba(255, 255, 255, 0.5);
-  margin-top: 0.8rem;
   border: 2px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  padding: 4px 10px;
+  padding: 6px 12px; /* Boutons un peu plus aérés */
   cursor: pointer;
   font-size: 1rem;
+  /* CORRECTION : On enlève le margin-top qui faisait dépasser le bouton */
+  margin-top: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .player-controls button:hover {
@@ -404,6 +403,7 @@ video {
   padding: 40px 0;        
   font-size: 4rem;
   text-decoration: underline;
+  font-weight: 400;
 }
 
 .text-only-software {
@@ -412,6 +412,7 @@ video {
   align-items: center;     
   padding: 40px 0;       
   font-size: 2rem;
+  font-weight: 400;
 }
 
 /* ----------------------------------------
@@ -425,14 +426,15 @@ video {
 .projet-title {
   font-size: 3rem;
   text-align: left;
-  margin: 0; /* Ajuste selon ton design */
+  margin: 0; 
+  font-weight: 400; /* S'assure que le titre du projet n'est pas gras */
 }
 
 /* SECTION VIDÉO */
 .projet-video-section {
   margin: 40px 0;
   display: flex;
-  justify-content: center; /* Centre la vidéo horizontalement */
+  justify-content: center; 
 }
 
 .projet-video {
@@ -442,7 +444,7 @@ video {
 
 .projet-video-wrapper {
   position: relative;
-  max-width: 80%; /* même largeur que tes autres vidéos */
+  max-width: 80%; 
   margin: 0 auto;
 }
 
@@ -456,7 +458,7 @@ video {
 /* SECTION IMAGE */
 .projet-image-section {
   margin: 40px 0;
-  text-align: center; /* Centre l'image horizontalement */
+  text-align: center; 
 }
 
 .projet-image {
@@ -468,18 +470,19 @@ video {
 /* SECTION TEXTE CENTRÉ */
 .projet-text-section {
   margin: 40px 0;
-  text-align: center; /* Centre le texte dans la page */
+  text-align: center; 
 }
 
 .projet-text {
-  font-size: 1.5rem; /* Plus petit que le titre */
-  max-width: 800px; /* Largeur max pour limiter la longueur des lignes */
-  margin: 0 auto;   /* Centre horizontalement si on fixe une largeur */
+  font-size: 1.5rem; 
+  max-width: 800px; 
+  margin: 0 auto;   
   line-height: 1.5;
+  font-weight: 400;
 }
 
 @media (max-width: 767.98px) {
-  /* Ajustements du header */
+  /* MEDIA QUERIES (IDENTIQUE) */
   .main-header nav {
     flex-direction: column;
     padding: 1rem;
@@ -502,7 +505,6 @@ video {
     text-decoration: underline;
   }
 
-  /* Carousel : conserver le scroll-snap */
   .carousel-container {
     overflow-y: auto;
     scroll-snap-type: y mandatory;
@@ -510,7 +512,6 @@ video {
   }
   
   .slide {
-    /* Ajustement pour laisser plus de place à la vidéo */
     min-height: auto;
     padding: 1rem 0;
     position: relative;
@@ -521,19 +522,17 @@ video {
     align-items: center;
   }
   
-  /* Vidéo responsive : augmentation de la hauteur maximale */
   .slide video {
     position: relative;
     width: 100%;
     height: auto;
     max-width: 100%;
-    max-height: 80vh; /* Hauteur maximale augmentée pour une meilleure visibilité */
+    max-height: 80vh; 
     object-fit: contain;
     margin: 0 auto;
     display: block;
   }
   
-  /* Barre d’infos en dessous de la vidéo */
   .info-bar {
     position: relative;
     width: 90%;
@@ -548,7 +547,6 @@ video {
     margin-bottom: 0.2rem;
   }
   
-  /* Désactivation du curseur personnalisé sur mobile */
   .custom-cursor {
     display: none;
   }
@@ -565,24 +563,23 @@ video {
   }
 
   .video-gallery {
-    width: 95%;          /* Optionnel, pour utiliser un peu plus d’espace sur mobile */
-    margin-top: 7rem;    /* Ajustez au besoin */
+    width: 95%;          
+    margin-top: 7rem;    
     margin-bottom: 1rem;
   }
   
   .video-row {
-    flex-direction: column;  /* Les vidéos passent à la verticale */
+    flex-direction: column;  
     margin-bottom: 1rem;
   }
   
   .video-container {
-    margin-right: 0;         /* Supprime la marge droite */
-    margin-bottom: 1rem;     /* Ajoute un espace entre chaque conteneur */
-    flex: none;              /* Permet de gérer la largeur indépendamment du flex parent */
-    width: 100%;             /* Chaque vidéo-container prend toute la largeur */
+    margin-right: 0;         
+    margin-bottom: 1rem;     
+    flex: none;              
+    width: 100%;             
   }
   
-  /* Ajustez la taille des textes si besoin */
   .video-caption {
     font-size: 0.8rem;
   }
@@ -595,31 +592,37 @@ video {
     display: none;
   }
 
+  /* Dans le media query mobile */
   .music-player {
     position: fixed;
     bottom: 15px;
     right: 17px;
     width: 260px;
-    height: 90px;
-    padding: 5px;
+    height: auto; /* Flexible */
+    min-height: 90px;
+    padding: 10px;
     border-radius: 10px;
+    /* On garde le flex pour l'alignement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .music-player h2 {
     font-size: 1rem;
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
   
   .track-title {
     font-size: 0.8rem;
-    margin-top: -0.2rem;
+    margin: 2px 0 8px 0;
   }
   
   .player-controls button {
     font-size: 0.8rem;
-    padding: 1px 5px;
+    padding: 2px 8px;
     border-radius: 7px;
-    margin-top: -0.15rem;
+    margin-top: 0;
   }
 
   .custom-cursor {
@@ -634,13 +637,12 @@ video {
     font-size: 0.6rem;
   }
 
-
   .container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 auto; 
-    padding: 20px; /* Pour un peu d'espace horizontal si besoin */
+    padding: 20px; 
     margin-top: 5rem;
     margin-bottom: -5rem;
   }
@@ -650,13 +652,11 @@ video {
     align-items: center;
     justify-content: center;
     margin: 0 auto; 
-    padding: 20px; /* Pour un peu d'espace horizontal si besoin */
+    padding: 20px; 
     margin-top: 5rem;
     margin-bottom: -2rem;
   }
 
-
-  /* Retrait ou ajustement des marges forcées sur le texte */
   .left-image .text-box,
   .right-image .text-box {
     margin: 20px 0;
@@ -664,18 +664,16 @@ video {
     text-align: center;
   }
 
-  /* On remet l'ordre par défaut (image / texte) en colonne */
   .left-image .image-box,
   .left-image .text-box,
   .right-image .image-box,
   .right-image .text-box {
     order: 0;
-    width: 100%; /* Chaque élément prend la largeur du conteneur */
+    width: 100%; 
   }
 
-  /* Ajuste la taille de l’image sur mobile */
   .image-box img {
-    max-width: 100%; /* Laisse l’image occuper toute la largeur disponible */
+    max-width: 100%; 
     height: auto;
   }
 
@@ -684,13 +682,11 @@ video {
     text-align: center; 
   }
 
-  /* Pour la section .text-only-skill, texte plus petit sur mobile */
   .text-only-skill {
     font-size: 1.5rem; 
     text-align: center; 
   }
 
-  /* Pour les blocs .text-only-software, texte un peu plus petit */
   .text-only-software {
     font-size: 1rem; 
     text-align: center; 
@@ -705,14 +701,13 @@ video {
   .projet-title {
     font-size: 1.5rem;
     text-align: left;
-    margin: 0; /* Ajuste selon ton design */
+    margin: 0; 
   }
 
-  /* SECTION VIDÉO */
   .projet-video-section {
     margin: 40px 0;
     display: flex;
-    justify-content: center; /* Centre la vidéo horizontalement */
+    justify-content: center; 
   }
 
   .projet-video {
@@ -720,10 +715,9 @@ video {
     height: auto;
   }
 
-  /* SECTION IMAGE */
   .projet-image-section {
     margin: 40px 0;
-    text-align: center; /* Centre l'image horizontalement */
+    text-align: center; 
   }
 
   .projet-image {
@@ -732,17 +726,15 @@ video {
     display: inline-block;
   }
 
-  /* SECTION TEXTE CENTRÉ */
   .projet-text-section {
     margin: 40px 0;
-    text-align: center; /* Centre le texte dans la page */
+    text-align: center; 
   }
 
   .projet-text {
-    font-size: 1rem; /* Plus petit que le titre */
-    max-width: 300px; /* Largeur max pour limiter la longueur des lignes */
-    margin: 0 auto;   /* Centre horizontalement si on fixe une largeur */
+    font-size: 1rem; 
+    max-width: 300px; 
+    margin: 0 auto;   
     line-height: 1.5;
   }
-
 }
